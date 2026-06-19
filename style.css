@@ -155,36 +155,6 @@ body{
  color:black;
 }
 
-@media (max-width: 768px) {
-
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    align-items: center;
-  }
-
-  nav ul li {
-    margin: 8px 0;
-  }
-
-  h1 {
-    font-size: 22px;
-    text-align: center;
-  }
-
-  p {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-}
-
 .page-section{
     padding:100px 10%;
     min-height:100vh;
