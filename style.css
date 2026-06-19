@@ -153,27 +153,33 @@ body{
  color:black;
 }
 
-@media(max-width:900px){
+@media (max-width: 768px) {
 
-.hero{
- flex-direction:column;
- text-align:center;
-}
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+  }
 
-.hero-text{
- width: 100%;
-max-width: 1000px;
-}
+  nav ul li {
+    margin: 8px 0;
+  }
 
-.hero-image img{
- width:250px;
- height:250px;
- margin-top:30px;
-}
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
 
-.nav-links{
- display:none;
-}
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 
 }
 
@@ -505,18 +511,31 @@ body.dark .theme-btn {
   background: #3b82f6;
 }
 
-@media (max-width: 500px) {
-  .card {
-    padding: 25px;
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .card h2 {
-    font-size: 26px;
+  .hero-text {
+    width: 100%;
   }
 
-  .top-bar {
-    padding: 15px;
+  .hero-text h1 {
+    font-size: 28px;
   }
+
+  .hero-image img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
 }
 
 
