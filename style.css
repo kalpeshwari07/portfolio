@@ -516,6 +516,7 @@ body.dark .theme-btn {
   .hero {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
   }
 
   .hero-text {
@@ -527,15 +528,14 @@ body.dark .theme-btn {
   }
 
   .hero-image img {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
 
   .nav-links {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
 
 }
-
-
