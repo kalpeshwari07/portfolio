@@ -1,42 +1,53 @@
-// Dark Light Theme
+// =====================
+// DARK / LIGHT MODE
+// =====================
 
 const toggle = document.getElementById("theme-toggle");
 
-toggle.onclick = () => {
-  document.body.classList.toggle("light-mode");
-};
+if (toggle) {
+  toggle.onclick = () => {
+    document.body.classList.toggle("light-mode");
+  };
+}
 
-// Typing Animation
 
-const text = [
-  "Student",
-  "NCC Cadet",
-  "Web Designer"
-  
-];
+// =====================
+// TYPING ANIMATION
+// =====================
 
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+const typingElement = document.querySelector(".typing");
 
-(function type(){
+if (typingElement) {
 
-  if(count === text.length){
-    count = 0;
-  }
+  const text = [
+    "Student",
+    "NCC Cadet",
+    "Web Designer"
+  ];
 
-  currentText = text[count];
-  letter = currentText.slice(0, ++index);
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let letter = "";
 
-  document.querySelector(".typing")
-  .textContent = letter;
+  (function type() {
 
-  if(letter.length === currentText.length){
-    count++;
-    index = 0;
-  }
+    if (count === text.length) {
+      count = 0;
+    }
 
-  setTimeout(type, 150);
+    currentText = text[count];
+    letter = currentText.slice(0, ++index);
 
-})();
+    typingElement.textContent = letter;
+
+    if (letter.length === currentText.length) {
+      count++;
+      index = 0;
+    }
+
+    setTimeout(type, 150);
+
+  })();
+
+}
