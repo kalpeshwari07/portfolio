@@ -189,11 +189,7 @@ footer{
  margin-top:50px;
 }
 
-/* DARK MODE */
-body.dark{
- background:#0f172a;
- color:white;
-}
+
 
 /* CONTACT PAGE */
 .container{
@@ -233,15 +229,6 @@ button[type="submit"]{
  cursor:pointer;
 }
 
-/* DARK MODE CONTACT */
-
-
-body.dark input,
-body.dark textarea{
- background:#0f172a;
- color:white;
- border:1px solid #334155;
-}
 /* =========================
    MODERN SKILLS LAYOUT
 ========================= */
@@ -315,12 +302,43 @@ body.dark textarea{
     }
 }
 .light-mode{
-  background:white;
-  color:black;
+  background:#ffffff;
+  color:#000000;
 }
 
 .light-mode .navbar{
-  background:
+  background:rgba(0,0,0,0.05);
+}
+
+.light-mode .logo{
+  color:#2563eb;
+}
+
+.light-mode .nav-links a{
+  color:#000000;
+}
+
+.light-mode .glass-card{
+  background:#ffffff;
+  color:#000000;
+  border:1px solid #ddd;
+}
+
+.light-mode .card{
+  background:#ffffff;
+  color:#000000;
+}
+
+.light-mode input,
+.light-mode textarea{
+  background:#ffffff;
+  color:#000000;
+  border:1px solid #ccc;
+}
+
+.light-mode .bg-animation{
+  display:none;
+}
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width:768px){
 
