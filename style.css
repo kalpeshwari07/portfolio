@@ -9,6 +9,8 @@
 }
 
 body{
+ background:#1e293b;
+ color:white;
  overflow-x:hidden;
  transition:0.5s;
 }
@@ -232,10 +234,7 @@ button[type="submit"]{
 }
 
 /* DARK MODE CONTACT */
-body.dark .card{
- background:#1e293b;
- color:white;
-}
+
 
 body.dark input,
 body.dark textarea{
@@ -315,6 +314,13 @@ body.dark textarea{
         width:0;
     }
 }
+.light-mode{
+  background:white;
+  color:black;
+}
+
+.light-mode .navbar{
+  background:
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width:768px){
 
@@ -348,3 +354,4 @@ body.dark textarea{
  }
 
 }
+
