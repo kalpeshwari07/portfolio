@@ -1,79 +1,510 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills | Kalpeshwari</title>
 
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
+<title>Skills | Kalpeshwari</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+    /* ================================
+       SKILLS PAGE DESIGN
+    ================================= */
+
+    .skills-wrapper {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .skills-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: -15px auto 55px;
+    }
+
+    .skills-intro p {
+        color: #cbd5e1;
+        line-height: 1.8;
+        font-size: 16px;
+    }
+
+    /* Skills Grid */
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    /* Skill Card */
+
+    .skill-card {
+        position: relative;
+        min-height: 210px;
+        padding: 30px;
+        border-radius: 25px;
+
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.18);
+
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+
+        box-shadow:
+            0 10px 35px rgba(0,0,0,0.25),
+            inset 0 1px 1px rgba(255,255,255,0.08);
+
+        overflow: hidden;
+
+        transition:
+            transform 0.4s ease,
+            box-shadow 0.4s ease,
+            border-color 0.4s ease;
+    }
+
+    /* Decorative glow */
+
+    .skill-card::before {
+        content: "";
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+
+        background: #60a5fa;
+        filter: blur(70px);
+        opacity: 0.12;
+
+        top: -50px;
+        right: -40px;
+
+        transition: 0.4s;
+    }
+
+    .skill-card:hover::before {
+        opacity: 0.3;
+        transform: scale(1.4);
+    }
+
+    .skill-card::after {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 1px;
+
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+
+        top: 0;
+        left: 20%;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-10px) scale(1.02);
+
+        border-color: rgba(96,165,250,0.6);
+
+        box-shadow:
+            0 20px 50px rgba(0,0,0,0.35),
+            0 0 25px rgba(96,165,250,0.15);
+    }
+
+    /* Icon */
+
+    .skill-icon {
+        width: 65px;
+        height: 65px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 18px;
+
+        background: linear-gradient(
+            135deg,
+            rgba(59,130,246,0.25),
+            rgba(139,92,246,0.25)
+        );
+
+        border: 1px solid rgba(255,255,255,0.15);
+
+        margin-bottom: 25px;
+
+        transition: 0.4s;
+    }
+
+    .skill-icon i {
+        font-size: 32px;
+        color: #60a5fa;
+
+        transition: 0.4s;
+    }
+
+    .skill-card:hover .skill-icon {
+        transform: rotate(-5deg) scale(1.1);
+        box-shadow: 0 0 25px rgba(96,165,250,0.25);
+    }
+
+    .skill-card:hover .skill-icon i {
+        transform: scale(1.1);
+    }
+
+    /* Text */
+
+    .skill-card h3 {
+        color: white;
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .skill-card p {
+        color: #cbd5e1;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* Number */
+
+    .skill-number {
+        position: absolute;
+
+        top: 25px;
+        right: 25px;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        color: rgba(255,255,255,0.35);
+
+        letter-spacing: 2px;
+    }
+
+    /* Special Cards */
+
+    .skill-card.large {
+        grid-column: span 2;
+    }
+
+    /* Bottom Highlight */
+
+    .skills-bottom {
+        margin-top: 35px;
+
+        padding: 25px 30px;
+
+        border-radius: 22px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+
+        backdrop-filter: blur(15px);
+    }
+
+    .skills-bottom h3 {
+        color: #60a5fa;
+        margin-bottom: 5px;
+    }
+
+    .skills-bottom p {
+        color: #cbd5e1;
+        font-size: 14px;
+    }
+
+    .skills-bottom i {
+        font-size: 35px;
+        color: #c084fc;
+    }
+
+    /* Responsive */
+
+    @media(max-width: 900px) {
+
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .skill-card.large {
+            grid-column: span 2;
+        }
+
+    }
+
+    @media(max-width: 600px) {
+
+        .page-section {
+            padding: 90px 6% 50px;
+        }
+
+        .page-section h1 {
+            font-size: 36px;
+        }
+
+        .skills-intro {
+            margin-bottom: 35px;
+        }
+
+        .skills-grid {
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .skill-card,
+        .skill-card.large {
+            grid-column: span 1;
+            min-height: 190px;
+        }
+
+        .skills-bottom {
+            flex-direction: column;
+            text-align: center;
+        }
+
+    }
+
+</style>
+```
+
 </head>
+
 <body>
 
-    <!-- Animated Background -->
-    <div class="bg-animation"></div>
+```
+<!-- Animated Background -->
+<div class="bg-animation"></div>
 
- <a href="index.html" class="back-btn">← Back</a>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
+<!-- Back Button -->
+<a href="index.html" class="back-btn">
+    <i class="fa-solid fa-arrow-left"></i> Back
+</a>
 
-            <h2 class="logo">Kalpeshwari</h2>
+<!-- Navbar -->
+<header>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="skills.html" class="active">Skills</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+    <nav class="navbar">
 
-            <button id="theme-toggle">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+        <h2 class="logo">Kalpeshwari</h2>
 
-        </nav>
-    </header>
+        <ul class="nav-links">
 
-    <!-- Skills Section -->
-    <section class="page-section">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li>
+                <a href="skills.html" class="active">Skills</a>
+            </li>
+
+            <li>
+                <a href="projects.html">Projects</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- ================================
+     SKILLS SECTION
+================================= -->
+
+<section class="page-section">
+
+    <div class="skills-wrapper">
 
         <h1>My Skills</h1>
-<div class="skill">
-    <h3>MS Office <span>95%</span></h3>
-    <div class="bar">
-        <div class="progress office"></div>
-    </div>
-</div>
 
-<div class="skill">
-    <h3>HTML <span>85%</span></h3>
-    <div class="bar">
-        <div class="progress html"></div>
-    </div>
-</div>
+        <div class="skills-intro">
 
-<div class="skill">
-    <h3>CSS <span>75%</span></h3>
-    <div class="bar">
-        <div class="progress css"></div>
-    </div>
-</div>
+            <p>
+                A collection of technical and professional skills
+                I have developed through learning, practice and projects.
+            </p>
 
-<div class="skill">
-    <h3>Java Script <span>40%</span></h3>
-    <div class="bar">
-        <div class="progress java"></div>
-    </div>
-    <p class="note">Currently learning Java Script 🚀</p>
-</div>
-    </section>
+        </div>
 
-    <script src="script.js"></script>
+
+        <div class="skills-grid">
+
+
+            <!-- MS Office -->
+
+            <div class="skill-card large">
+
+                <span class="skill-number">01</span>
+
+                <div class="skill-icon">
+                    <i class="fa-solid fa-file-word"></i>
+                </div>
+
+                <h3>MS Office</h3>
+
+                <p>
+                    Microsoft Word, Excel and PowerPoint for
+                    documentation, data management and presentations.
+                </p>
+
+            </div>
+
+
+            <!-- HTML -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">02</span>
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-html5"></i>
+                </div>
+
+                <h3>HTML</h3>
+
+                <p>
+                    Building structured, semantic and
+                    user-friendly web pages.
+                </p>
+
+            </div>
+
+
+            <!-- CSS -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">03</span>
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-css3-alt"></i>
+                </div>
+
+                <h3>CSS</h3>
+
+                <p>
+                    Creating modern layouts, animations,
+                    responsive designs and visual effects.
+                </p>
+
+            </div>
+
+
+            <!-- JavaScript -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">04</span>
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-js"></i>
+                </div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Adding interactive features and
+                    dynamic behaviour to websites.
+                </p>
+
+            </div>
+
+
+            <!-- Java -->
+
+            <div class="skill-card">
+
+                <span class="skill-number">05</span>
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-java"></i>
+                </div>
+
+                <h3>Java</h3>
+
+                <p>
+                    Programming fundamentals, logic building
+                    and object-oriented programming concepts.
+                </p>
+
+            </div>
+
+
+            <!-- PHP -->
+
+            <div class="skill-card large">
+
+                <span class="skill-number">06</span>
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-php"></i>
+                </div>
+
+                <h3>PHP</h3>
+
+                <p>
+                    Server-side programming and dynamic
+                    web development using PHP.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Bottom Highlight -->
+
+        <div class="skills-bottom">
+
+            <div>
+
+                <h3>Always Learning • Always Creating</h3>
+
+                <p>
+                    Turning ideas into creative and functional
+                    digital experiences.
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-code"></i>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
 
 </body>
+
 </html>
