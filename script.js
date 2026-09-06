@@ -5,11 +5,32 @@
 const toggle = document.getElementById("theme-toggle");
 
 if (toggle) {
-  toggle.onclick = () => {
-    document.body.classList.toggle("light-mode");
-  };
-}
 
+```
+const icon = toggle.querySelector("i");
+
+toggle.onclick = () => {
+
+    // Change theme
+    document.body.classList.toggle("light-mode");
+
+    // Change icon
+    if (document.body.classList.contains("light-mode")) {
+
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+
+    } else {
+
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+
+    }
+
+};
+```
+
+}
 
 // =====================
 // TYPING ANIMATION
@@ -19,35 +40,60 @@ const typingElement = document.querySelector(".typing");
 
 if (typingElement) {
 
-  const text = [
+```
+const text = [
     "Student",
     "NCC Cadet",
     "Web Designer"
-  ];
+];
 
-  let count = 0;
-  let index = 0;
-  let currentText = "";
-  let letter = "";
+let count = 0;
+let index = 0;
+let deleting = false;
 
-  (function type() {
+function type() {
 
-    if (count === text.length) {
-      count = 0;
+    const currentText = text[count];
+
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentText.slice(0, index + 1);
+
+        index++;
+
+        if (index === currentText.length) {
+
+            deleting = true;
+
+            setTimeout(type, 1500);
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent =
+            currentText.slice(0, index - 1);
+
+        index--;
+
+        if (index === 0) {
+
+            deleting = false;
+            count++;
+
+            if (count === text.length) {
+                count = 0;
+            }
+
+        }
+
     }
 
-    currentText = text[count];
-    letter = currentText.slice(0, ++index);
+    setTimeout(type, deleting ? 70 : 120);
+}
 
-    typingElement.textContent = letter;
-
-    if (letter.length === currentText.length) {
-      count++;
-      index = 0;
-    }
-
-    setTimeout(type, 150);
-
-  })();
+type();
+```
 
 }
