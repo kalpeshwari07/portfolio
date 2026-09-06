@@ -67,12 +67,61 @@ body{
  color:#60a5fa;
 }
 
-#theme-toggle{
- padding:10px;
- border:none;
- border-radius:50%;
- cursor:pointer;
+#theme-toggle {
+width: 48px;
+height: 48px;
+
+```
+display: flex;
+justify-content: center;
+align-items: center;
+
+border: 1px solid rgba(255,255,255,0.25);
+border-radius: 50%;
+
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(12px);
+
+color: #60a5fa;
+font-size: 20px;
+
+cursor: pointer;
+
+box-shadow:
+    0 0 15px rgba(96,165,250,0.15),
+    inset 0 1px 1px rgba(255,255,255,0.1);
+
+transition: 0.4s ease;
+```
+
 }
+
+#theme-toggle:hover {
+transform: rotate(20deg) scale(1.1);
+
+```
+background: linear-gradient(
+    135deg,
+    rgba(59,130,246,0.25),
+    rgba(139,92,246,0.25)
+);
+
+color: #c084fc;
+
+box-shadow:
+    0 0 25px rgba(96,165,250,0.4);
+```
+
+}
+
+#theme-toggle i {
+transition: 0.4s ease;
+}
+
+#theme-toggle:active {
+transform: scale(0.9);
+}
+
 
 .hero{
  min-height:90vh;
